@@ -1,0 +1,8 @@
+data_cars_data (Id INT PRIMARY KEY, MPG INT, Cylinders INT, Edispl INT, Horsepower INT, Weight INT, Accelerate INT, Year INT)
+data_car_continents (ContId INT PRIMARY KEY, Continent TEXT)
+data_car_countries (CountryId INT PRIMARY KEY, CountryName TEXT, Continent INT, FOREIGN KEY (Continent) REFERENCES data_car_continents (ContId))
+data_car_makers (Id INT PRIMARY KEY, Maker TEXT, FullName TEXT, Country INT, FOREIGN KEY (Country) REFERENCES data_car_countries (CountryId))
+data_car_names (Id INT PRIMARY KEY, Model TEXT, Make TEXT)
+data_languages_countries (id INT PRIMARY KEY, name TEXT, overall_score INT, justice_score INT)
+data_languages_data (id INT PRIMARY KEY, name TEXT)
+data_languages_official_languages (language_id INT, country_id INT, PRIMARY KEY (language_id, country_id), FOREIGN KEY (language_id) REFERENCES data_languages_data (id), FOREIGN KEY (country_id) REFERENCES data_languages_countries (id))
